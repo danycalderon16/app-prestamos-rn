@@ -8,7 +8,7 @@ import { Pressable, Text } from 'react-native'
 
 export default function Login() {
 
-  const { response, signIn } = useGoogleAuth();
+  const { request, response, signIn } = useGoogleAuth();
 
   useEffect(() => {
     if(response?.type === "success"){
@@ -31,6 +31,7 @@ export default function Login() {
     >
      <Pressable
         onPress={signIn}
+        disabled={!request}
         className="flex-row items-center gap-3
                    border border-green-50 px-4 py-3 rounded-xl"
         android_ripple={{ color: "rgba(255,255,255,0.15)" }}
